@@ -1,0 +1,28 @@
+version: v1.0
+name: First pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Lint
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: make lint
+          commands:
+            - echo "lint your code"
+  - name: 'Block #3'
+    task:
+      epilogue:
+        on_pass:
+          commands:
+            - 'curl https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183'
+        on_fail:
+          commands:
+            - 'curl https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183'
+      jobs:
+        - name: 'Job #1'
+          commands: []
