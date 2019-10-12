@@ -17,6 +17,11 @@ blocks:
   - name: 'Block #3'
     task:
       epilogue:
+        always:
+          commands:
+            - >-
+              curl
+              https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183?aa=ccc
         on_pass:
           commands:
             - 'curl https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183'
