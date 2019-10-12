@@ -17,17 +17,16 @@ blocks:
   - name: 'Block #3'
     task:
       epilogue:
-        always:
+        on_pass:
           commands:
             - >-
               curl
-              https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183?aa=ccc
-        on_pass:
-          commands:
-            - 'curl https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183'
+              https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183?hehe=1234
         on_fail:
           commands:
-            - 'curl https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183'
+            - >-
+              curl
+              https://webhook.site/2278a16f-96ac-401f-9bd0-48d8c6132183?ggg=33434
       jobs:
         - name: 'Job #1'
           commands: []
